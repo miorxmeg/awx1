@@ -1,5 +1,5 @@
 ---
-- hosts: zenanodes
+- hosts: all
   become: true
   roles:
   - basic
