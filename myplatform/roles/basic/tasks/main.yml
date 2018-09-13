@@ -1,5 +1,5 @@
 - name: "Copy Zena installer files to Agents Server Nodes"
-  copy: src=/mnt/nfs/var/nfs/zenainstaller/ dest=/tmp/zenainstaller/ owner=root group=root mode=0775
+  copy: src=../../../../../../mnt/nfs/var/nfs/zenainstaller/ dest=/tmp/zenainstaller/ owner=root group=root mode=0775
 - name: "Make Sure Unzip Installed on Nodes"
   yum: name=unzip state=present
 - name: "Installing Zena Controller"
