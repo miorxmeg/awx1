@@ -1,5 +1,5 @@
-- name: "FTP Zena installer files to Agents Server Nodes"
-  copy: src=/home/mior/myplatform/roles/basic/files/zenainstaller/ dest=/tmp/zenainstaller/ owner=root group=root mode=0775
+- name: "Copy Zena installer files to Agents Server Nodes"
+  copy: src=/mnt/nfs/var/nfs/zenainstaller/ dest=/tmp/zenainstaller/ owner=root group=root mode=0775
 - name: "Make Sure Unzip Installed on Nodes"
   yum: name=unzip state=present
 - name: "Installing Zena Controller"
@@ -7,7 +7,7 @@
   ignore_errors: True
 - name: "Installing Zena Agent"
   shell: /tmp/zenainstaller/Agent/install.bin
-- name: "Querying Zena Agent log"
+- name: "Do Zena Agent installed?"
   shell: 'more /opt/zena/agent/xagent_1.log'
-- name: "Querying Zena Agent Status"
+- name: "Status for Zena Agent is running..."
   shell: '/opt/zena/bin/LINUX64/zenastat list'
