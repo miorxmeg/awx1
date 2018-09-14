@@ -10,6 +10,7 @@
   yum: name=unzip state=present
 - name: "Updating Zena Agent to 3.2.2.480"
   shell: /tmp/zenainstaller/Agent480/install.bin
+  ignore_errors: True
 - name: "Do Zena Agent installed?"
   shell: 'more /opt/zena/agent/xagent_1.log'
 - name: "Status for Zena Agent is running..."
