@@ -1,0 +1,19 @@
+- name: "Checking hostname at nodes"
+  command: hostname
+- name: "Checking pwd at nodes"
+  command: pwd
+- name: "Copy Zena installer files to Agents Server Nodes from share"
+  shell: 'cp -R /mnt/nfs/var/nfs/zenainstaller /tmp'
+- name: "Chmod 775 copied installer"
+  shell: 'chmod -R 775 /tmp/zenainstaller'
+- name: "Make Sure Unzip Installed on Nodes"
+  yum: name=unzip state=present
+- name: "Installing Zena Controller"
+  shell: /tmp/zenainstaller/Controller/install.bin
+  ignore_errors: True
+- name: "Installing Zena Agent"
+  shell: /tmp/zenainstaller/Agent/install.bin
+- name: "Do Zena Agent installed?"
+  shell: 'more /opt/zena/agent/xagent_1.log'
+- name: "Status for Zena Agent is running..."
+shell: '/opt/zena/bin/LINUX64/zenastat list
