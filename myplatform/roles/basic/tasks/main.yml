@@ -8,9 +8,6 @@
   shell: 'chmod -R 775 /tmp/zenainstaller'
 - name: "Make Sure Unzip Installed on Nodes"
   yum: name=unzip state=present
-- name: "Force zenaController to be alive..."
-  shell: '/opt/zena/bin/LINUX64/zenacontroller'
-  ignore_errors: True
 - name: "Check Current Agent Status..."
   shell: '/opt/zena/bin/LINUX64/zenastat list'
 - name: "Stop Zena old Agent"
